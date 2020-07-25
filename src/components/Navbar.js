@@ -1,17 +1,17 @@
 import React from 'react'
-import { Menu as Nav, Icon, Button } from 'element-react'
+import { Menu as Nav, Button } from 'element-react'
+import { Icon } from 'react-icons-kit'
+import { gear } from 'react-icons-kit/fa/gear'
+import { library } from 'react-icons-kit/icomoon/library'
 import { NavLink } from 'react-router-dom'
+
 const Navbar = ({ user, handleSignOut }) => (
   <Nav mode='horizontal' theme='dark' defaultActive='1'>
     <div className='nav-container'>
       <Nav.Item index='1'>
         <NavLink to='/' className='nav-link'>
           <span className='app-title'>
-            <img
-              src='https://icon.now.sh/account_balance/f90'
-              // alt='App Icon'
-              className='app-icon'
-            ></img>
+            <Icon size={32} icon={library} className='app-icon' />
             MarketPlace
           </span>
         </NavLink>
@@ -22,7 +22,7 @@ const Navbar = ({ user, handleSignOut }) => (
         </Nav.Item>
         <Nav.Item index='3'>
           <NavLink to='/profile' className='nav-link' />
-          <Icon name='setting' />
+          <Icon size={26} icon={gear} className='app-icon' />
           Profile
         </Nav.Item>
         <Nav.Item index='4'>

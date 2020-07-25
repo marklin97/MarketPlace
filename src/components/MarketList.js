@@ -3,7 +3,11 @@ import { Connect } from 'aws-amplify-react'
 import { listMarkets } from '../graphql/queries'
 import { graphqlOperation } from 'aws-amplify'
 import { onCreateMarket } from '../graphql/subscriptions'
-import { Loading, Card, Icon, Tag } from 'element-react'
+import { Loading, Card, Tag } from 'element-react'
+import { Icon } from 'react-icons-kit'
+
+import { database } from 'react-icons-kit/icomoon/database'
+import { cart } from 'react-icons-kit/icomoon/cart'
 import { Link } from 'react-router-dom'
 import Error from './Error'
 
@@ -48,11 +52,7 @@ const MarketList = ({ searchResults }) => {
               </h2>
             ) : (
               <h2 className='header'>
-                <img
-                  src='https://icon.now.sh/store_mall_directory/527FFF'
-                  alt='Store Icon'
-                  className='large_icon'
-                />
+                <Icon size={32} icon={database} className='img-icon' />
                 Markets
               </h2>
             )}
@@ -66,7 +66,7 @@ const MarketList = ({ searchResults }) => {
                     justifyContent: 'space-between'
                   }}
                 >
-                  <div>
+                  <div style={{ color: '#F4A261' }}>
                     <span className='flex'>
                       <Link className='link' to={`/markets/${market.id}`}>
                         {market.name}
@@ -76,10 +76,7 @@ const MarketList = ({ searchResults }) => {
                           ? market.products.items.length
                           : 0}
                       </span>
-                      <img
-                        src='https://icon.now.sh/shopping_cart/f60'
-                        alt='Shopping Cart'
-                      />
+                      <Icon icon={cart} />
                     </span>
                     <div style={{ color: 'var(--lightSquidInk' }}>
                       {market.owner}
